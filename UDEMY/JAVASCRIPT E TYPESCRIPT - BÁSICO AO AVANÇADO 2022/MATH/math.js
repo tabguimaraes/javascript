@@ -1,3 +1,6 @@
+//Referência para consulta:
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math
+
 // EXEMPLOS DE USO DO OBJETO 'MATH'
 
 let numeroComPontoFlutuante = 152.6546548741;

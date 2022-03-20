@@ -1,3 +1,6 @@
+//Referência para consulta:
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math
+
 /* OBJETIVOS:
 
 Descobrir o valor digitado pelo usuário e inserir no documento html os testes abaixo:
@@ -38,26 +41,18 @@ numeroMais2.innerHTML = `<p>Seu número + 2 é ${numeroDigitado + 2}. </p>`;
 
 raizQuadrada.innerHTML = `<p>A raíz quadrada é ${numeroDigitado ** 0.5}. </p>`;
 
-verificarInteiro.innerHTML = `<p>O número ${numeroDigitado} é inteiro?: ${Number.isInteger(
-  numeroDigitado
-)}. </p>`;
+verificarInteiro.innerHTML = `<p>O número ${numeroDigitado} é inteiro?: ${Number.isInteger(numeroDigitado)}. </p>`;
 
-verificarNan.innerHTML = `<p>O número ${numeroDigitado} é NaN?: ${Number.isNaN(
-  numeroDigitado
-)}. </p>`;
+verificarNan.innerHTML = `<p>O número ${numeroDigitado} é NaN?: ${Number.isNaN(numeroDigitado)}. </p>`;
 
 arredondaBaixo.innerHTML = `<p>O número ${numeroDigitado} arredondado para baixo é: ${Math.floor(
-  numeroDigitado
+	numeroDigitado
 )}. </p>`;
 
-arredondaCima.innerHTML = `<p>O número ${numeroDigitado} arredondado para cima é: ${Math.ceil(
-  numeroDigitado
-)}. </p>`;
+arredondaCima.innerHTML = `<p>O número ${numeroDigitado} arredondado para cima é: ${Math.ceil(numeroDigitado)}. </p>`;
 
 duasCasasDecimais.innerHTML = `<p>O número ${numeroDigitado} com duas casas decimais é: ${numeroDigitado.toFixed(
-  2
+	2
 )}. </p>`;
 
-valorBinario.innerHTML = `<p>O número ${numeroDigitado} em binário é: ${numeroDigitado.toString(
-  2
-)}. </p>`;
+valorBinario.innerHTML = `<p>O número ${numeroDigitado} em binário é: ${numeroDigitado.toString(2)}. </p>`;
