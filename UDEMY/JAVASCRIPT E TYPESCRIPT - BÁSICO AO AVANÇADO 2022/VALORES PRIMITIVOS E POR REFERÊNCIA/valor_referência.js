@@ -1,0 +1,32 @@
+// VALORES POR REFERÊNCIA - MUTÁVEL
+
+//ARRAY, OBJECT, FUNCTION
+//VALORES SÃO PASSADOS POR REFERÊNCIA DE LOCAL
+
+//VARIÁVEL 'b' BUSCA OS VALORES DE 'a', POIS AMBOS ESTÃO APONTANDO PARA O MESMO LOCAL DA MEMÓRIA
+let a = [1, 2, 3];
+let b = a;
+console.log(a, b);
+
+//AO ALTERAR O VALOR DE 'a' OU 'b', A MUDANÇA AFETA AMBOS
+//
+
+// INCLUINDO UM VALOR DA VARIÁVEL 'a', O MESMO VALOR SERÁ ATRIBUÍDO A 'b':
+a.push(4);
+console.log(a, b);
+
+// EXCLUIR UM VALOR DA VARIÁVEL 'b', O MESMO VALOR SERÁ EXCLUÍDO DE 'a':
+b.pop();
+console.log(a, b);
+
+//
+//COPIANDO OS VALORES DE 'a' PARA 'b', EVITANDO QUE MUDANÇAS EM 'a' ALTEREM O VALOR DE 'b':
+console.log('COPIANDO OS VALORES DE "a" PARA "b", EVITANDO QUE MUDANÇAS EM "a" ALTEREM O VALOR DE "b":');
+a = [1, 2, 3];
+b = [...a];
+console.log(a, b);
+
+//ADICIONADO O NUMERO 4 EM "a", SEM AFETAR "b":
+a.push(4);
+console.log('ADICIONADO O NUMERO 4 EM "a", SEM AFETAR "b":');
+console.log(a, b);
