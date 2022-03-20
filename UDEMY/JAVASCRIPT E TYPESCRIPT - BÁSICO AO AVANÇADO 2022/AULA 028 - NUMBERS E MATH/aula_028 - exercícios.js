@@ -5,6 +5,7 @@ Descobrir o valor digitado pelo usuário e inserir no documento html os testes a
 O número digitado é: N
 A raíz quadrada dele é: N
 O número N é inteiro? False ou True
+O número é NaN: False ou True
 Arrendondando para baixo ele fica:N
 Arrendondando para cima ele fica:N
 Com duas casa decimais: N
@@ -21,6 +22,8 @@ const raizQuadrada = document.getElementById('raizQuadrada');
 
 const verificarInteiro = document.getElementById('verificarInteiro');
 
+const verificarNan = document.getElementById('verificarNan');
+
 const arredondaBaixo = document.getElementById('arredondaBaixo');
 
 const arredondaCima = document.getElementById('arredondaCima');
@@ -36,6 +39,10 @@ numeroMais2.innerHTML = `<p>Seu número + 2 é ${numeroDigitado + 2}. </p>`;
 raizQuadrada.innerHTML = `<p>A raíz quadrada é ${numeroDigitado ** 0.5}. </p>`;
 
 verificarInteiro.innerHTML = `<p>O número ${numeroDigitado} é inteiro?: ${Number.isInteger(
+  numeroDigitado
+)}. </p>`;
+
+verificarNan.innerHTML = `<p>O número ${numeroDigitado} é NaN?: ${Number.isNaN(
   numeroDigitado
 )}. </p>`;
 
