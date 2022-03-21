@@ -1,8 +1,6 @@
-//
+//SALVAR OS DADOS DE CADA CAMPO DO FORMULÁRIO EM UMA VARIÁVEL E EXIBIR ELES NO RODAPÉ DO FORM AO CLICAR NO BOTÃO ENVIAR
 
 console.log('teste de conexão ok');
-
-//
 
 function meuEscopo() {
 	const form = document.querySelector('.form');
