@@ -1,4 +1,6 @@
 // USA APENAS '? : ' PARA SELECIONAR RETORNO ENTRE DUAS OPÇÃO DEFINIDAS PELA EXPRESSÃO
+// REFERÊNCIA PARA CONSULTA
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
 // EXEMPLO USANDO IF:
 
