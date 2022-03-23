@@ -32,30 +32,64 @@ Imprima o texto "R$" seguido de um espaço e do valor total devido de Imposto
 de Renda, com duas casas após o ponto. Se o valor de entrada for menor ou
 igual a 2000, deverá ser impressa a mensagem "Isento". */
 
-// NECESSITA REESTRUTURAÇÃO //
-let salario = 3002.0;
+//
+
+let salario = 4501;
 const isento = 'ISENTO';
 
-const faixa1 = 0.08;
-const faixa2 = 0.18;
-const faixa3 = 0.28;
+const faixaSalario1 = 2000.0;
+const faixaSalario2 = 3000.0;
+const faixaSalario3 = 4500.0;
 
-if (salario <= 2000.0) {
+const taxa1 = 0.08;
+const taxa2 = 0.18;
+const taxa3 = 0.28;
+
+let saldoFaixa1 = 0;
+let saldoFaixa2 = 0;
+let saldoFaixa3 = 0;
+
+let imposto = 0;
+
+// FAIXA DE SALARIO ISENTO DE IMPOSTO
+if (salario <= faixaSalario1) {
 	console.log(isento);
-	//
-} else if (salario > 2000.0 && salario <= 3000.0) {
-	saldo = salario - 2000.0;
-	imposto = saldo * faixa1;
-	console.log(`Imposto devido R$ ${imposto.toFixed(2)}`);
-	//
-} else if (salario > 3000.0 && salario <= 4500.0) {
-	excedente = salario - 3000.0;
-	aux1 = excedente * faixa2;
-	aux2 = (salario - 2000.0 - excedente) * 0.08;
-	saldo = aux1 + aux2;
 
-	console.log(`Imposto devido R$ ${saldo.toFixed(2)}`);
+	// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
+} else if (salario > faixaSalario1 && salario <= faixaSalario2) {
+	saldoFaixa1 = salario - faixaSalario1;
+
+	imposto = saldoFaixa1 * taxa1;
+
+	console.log(`Imposto devido na faixa 1 de contribuição: R$ ${imposto.toFixed(2)}`);
+
+	// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
+} else if (salario > faixaSalario2 && salario <= faixaSalario3) {
+	saldoFaixa2 = salario - faixaSalario2;
+	salario = salario - saldoFaixa2;
+	saldoFaixa2 = saldoFaixa2 * taxa2;
+
+	saldoFaixa1 = salario - faixaSalario1;
+	saldoFaixa1 = saldoFaixa1 * taxa1;
+
+	imposto = saldoFaixa1 + saldoFaixa2;
+
+	console.log(`Imposto devido na faixa 2 de contribuição: R$ ${imposto.toFixed(2)}`);
+
+	// SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
 } else {
-	saldo = salario - 2000.0;
-	imposto = saldo;
+	saldoFaixa3 = salario - faixaSalario3;
+	salario = salario - saldoFaixa3;
+	saldoFaixa3 = saldoFaixa3 * taxa3;
+
+	saldoFaixa2 = salario - faixaSalario2;
+	salario = salario - saldoFaixa2;
+	saldoFaixa2 = saldoFaixa2 * taxa2;
+
+	saldoFaixa1 = salario - faixaSalario1;
+	saldoFaixa1 = saldoFaixa1 * taxa1;
+
+	imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
+
+	console.log(`Imposto devido na faixa 3 de contribuição: R$ ${imposto.toFixed(2)}`);
 }
