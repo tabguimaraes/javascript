@@ -78,18 +78,55 @@ if (salario <= faixaSalario1) {
 
 	// SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
 } else {
-	saldoFaixa3 = salario - faixaSalario3;
-	salario = salario - saldoFaixa3;
-	saldoFaixa3 = saldoFaixa3 * taxa3;
+	// saldoFaixa3 = salario - faixaSalario3;
+	// salario = salario - saldoFaixa3;
+	// saldoFaixa3 = saldoFaixa3 * taxa3;
 
-	saldoFaixa2 = salario - faixaSalario2;
-	salario = salario - saldoFaixa2;
-	saldoFaixa2 = saldoFaixa2 * taxa2;
+	// saldoFaixa2 = salario - faixaSalario2;
+	// salario = salario - saldoFaixa2;
+	// saldoFaixa2 = saldoFaixa2 * taxa2;
 
-	saldoFaixa1 = salario - faixaSalario1;
-	saldoFaixa1 = saldoFaixa1 * taxa1;
+	// saldoFaixa1 = salario - faixaSalario1;
+	// saldoFaixa1 = saldoFaixa1 * taxa1;
 
+	// imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
+
+	salario = salario - 2000;
+
+	saldoFaixa1 = faixaSalario2 * taxa1;
+	saldoFaixa2 = faixaSalario3 * taxa2;
+	saldoFaixa3 = (salario - faixaSalario2 - faixaSalario3) * taxa3;
 	imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
+	// console.log(saldoFaixa3);
+	// saldoFaixa1 = salario * taxa1;
+
+	// saldoFaixa3 = salario - faixaSalario3;
+	// saldoFaixa3 = salario * taxa3;
+
+	// salario = salario - faixaSalario2;
+	// saldoFaixa2 = salario * taxa2;
+
+	// imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
 
 	console.log(`Imposto devido na faixa 3 de contribuição: R$ ${imposto.toFixed(2)}`);
 }
+
+/*
+Corrigir tabelas na faixa 3:
+
+
+ex: 
+Salário de 10k
+
+Subtrair 2k devido a isenção: 8k
+
+
+Subtrair 3k + = 0.08 = 240
+
+Subtrair 4,5k = 0.18 = 810
+
+Subtrair o saldo restante = 0.28 = 140
+
+total: 1190
+
+*/
