@@ -23,3 +23,4 @@ console.log(`${resultado(3, 110).toFixed(3)}`);
 console.log(`${resultado(2, 60).toFixed(3)}`);
 console.log(`${resultado(10, 75).toFixed(3)}`);
 console.log();
+//
