@@ -32,7 +32,7 @@ Imprima o texto "R$" seguido de um espaço e do valor total devido de Imposto
 de Renda, com duas casas após o ponto. Se o valor de entrada for menor ou
 igual a 2000, deverá ser impressa a mensagem "Isento". */
 
-//
+// NECESSITA REESTRUTURAÇÃO //
 let salario = 3002.0;
 const isento = 'ISENTO';
 
