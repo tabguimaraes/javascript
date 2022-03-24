@@ -94,3 +94,5 @@ if (salario <= salarioLivreDeImposto) {
 
 	console.log(`Imposto devido sobre salários superiores a R$ 4.500,00: R$ ${imposto.toFixed(2)}`);
 }
+
+//
