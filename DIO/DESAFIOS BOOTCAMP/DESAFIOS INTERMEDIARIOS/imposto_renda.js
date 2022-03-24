@@ -34,17 +34,20 @@ igual a 2000, deverá ser impressa a mensagem "Isento". */
 
 //
 
-let salario = 4500;
+let salario = 4501;
 
 const isento = 'ISENTO';
 
-const faixaSalario1 = 2000.0;
-const faixaSalario2 = 3000.0;
-const faixaSalario3 = 4500.0;
+const salarioFaixa1 = 2000.0;
+const salarioFaixa2 = 3000.0;
+const salarioFaixa3 = 4500.0;
 
-const taxa1 = 0.08;
-const taxa2 = 0.18;
-const taxa3 = 0.28;
+const debitoFaixa1 = 1000;
+const debitoFaixa2 = 1500;
+
+const taxaFaixa1 = 0.08;
+const taxaFaixa2 = 0.18;
+const taxaFaixa3 = 0.28;
 
 let saldoFaixa1 = 0;
 let saldoFaixa2 = 0;
@@ -53,25 +56,25 @@ let saldoFaixa3 = 0;
 let imposto = 0;
 
 // FAIXA DE SALARIO ISENTO DE IMPOSTO
-if (salario <= faixaSalario1) {
+if (salario <= salarioFaixa1) {
 	console.log(isento);
 
 	// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
-} else if (salario > faixaSalario1 && salario <= faixaSalario2) {
-	saldoFaixa1 = salario - faixaSalario1;
+} else if (salario > salarioFaixa1 && salario <= salarioFaixa2) {
+	saldoFaixa1 = salario - salarioFaixa1;
 
-	imposto = saldoFaixa1 * taxa1;
+	imposto = saldoFaixa1 * taxaFaixa1;
 
 	console.log(`Imposto devido na faixa 1 de contribuição: R$ ${imposto.toFixed(2)}`);
 
 	// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
-} else if (salario > faixaSalario2 && salario <= faixaSalario3) {
-	salario = salario - faixaSalario1;
+} else if (salario > salarioFaixa2 && salario <= salarioFaixa3) {
+	salario = salario - salarioFaixa1;
 
-	salario = salario - 1000;
-	saldoFaixa1 = 1000 * taxa1;
+	salario = salario - debitoFaixa1;
+	saldoFaixa1 = debitoFaixa1 * taxaFaixa1;
 
-	saldoFaixa2 = salario * taxa2;
+	saldoFaixa2 = salario * taxaFaixa2;
 
 	imposto = saldoFaixa1 + saldoFaixa2;
 
@@ -79,15 +82,15 @@ if (salario <= faixaSalario1) {
 
 	// SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
 } else {
-	salario = salario - faixaSalario1;
+	salario = salario - salarioFaixa1;
 
-	salario = salario - 1000;
-	saldoFaixa1 = 1000 * taxa1;
+	salario = salario - debitoFaixa1;
+	saldoFaixa1 = debitoFaixa1 * taxaFaixa1;
 
-	salario = salario - 1500;
-	saldoFaixa2 = 1500 * taxa2;
+	salario = salario - debitoFaixa2;
+	saldoFaixa2 = debitoFaixa2 * taxaFaixa2;
 
-	saldoFaixa3 = salario * taxa3;
+	saldoFaixa3 = salario * taxaFaixa3;
 
 	imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
 
