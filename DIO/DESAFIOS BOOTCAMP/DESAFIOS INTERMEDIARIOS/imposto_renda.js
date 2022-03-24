@@ -67,9 +67,10 @@ if (salario <= faixaSalario1) {
 	// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
 } else if (salario > faixaSalario2 && salario <= faixaSalario3) {
 	salario = salario - faixaSalario1;
-	saldoFaixa1 = 1000 * taxa1;
 
 	salario = salario - 1000;
+	saldoFaixa1 = 1000 * taxa1;
+
 	saldoFaixa2 = salario * taxa2;
 
 	imposto = saldoFaixa1 + saldoFaixa2;
@@ -84,7 +85,6 @@ if (salario <= faixaSalario1) {
 	saldoFaixa1 = 1000 * taxa1;
 
 	salario = salario - 1500;
-
 	saldoFaixa2 = 1500 * taxa2;
 
 	saldoFaixa3 = salario * taxa3;
