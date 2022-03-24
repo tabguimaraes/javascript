@@ -36,63 +36,61 @@ igual a 2000, deverá ser impressa a mensagem "Isento". */
 
 let salario = 4501;
 
-const isento = 'ISENTO';
+const salarioLivreDeImposto = 2000.0;
+const salarioAte3K = 3000.0;
+const salarioAte4_5K = 4500.0;
 
-const salarioFaixa1 = 2000.0;
-const salarioFaixa2 = 3000.0;
-const salarioFaixa3 = 4500.0;
+const debitoAte3K = 1000;
+const debitoAte4_5K = 1500;
 
-const debitoFaixa1 = 1000;
-const debitoFaixa2 = 1500;
+const taxaAte3K = 0.08;
+const taxaAte4_5K = 0.18;
+const taxaMaior4_5K = 0.28;
 
-const taxaFaixa1 = 0.08;
-const taxaFaixa2 = 0.18;
-const taxaFaixa3 = 0.28;
-
-let saldoFaixa1 = 0;
-let saldoFaixa2 = 0;
-let saldoFaixa3 = 0;
+let saldoAte3K = 0;
+let saldoAte4_5K = 0;
+let saldoMaior4_5K = 0;
 
 let imposto = 0;
 
 // FAIXA DE SALARIO ISENTO DE IMPOSTO
-if (salario <= salarioFaixa1) {
-	console.log(isento);
+if (salario <= salarioLivreDeImposto) {
+	console.log('Salário isento de imposto.');
 
 	// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
-} else if (salario > salarioFaixa1 && salario <= salarioFaixa2) {
-	saldoFaixa1 = salario - salarioFaixa1;
+} else if (salario > salarioLivreDeImposto && salario <= salarioAte3K) {
+	saldoAte3K = salario - salarioLivreDeImposto;
 
-	imposto = saldoFaixa1 * taxaFaixa1;
+	imposto = saldoAte3K * taxaAte3K;
 
-	console.log(`Imposto devido na faixa 1 de contribuição: R$ ${imposto.toFixed(2)}`);
+	console.log(`Imposto devido sobre salários entre R$ 2.000,00 e R$ 3.000,00: R$ ${imposto.toFixed(2)}`);
 
 	// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
-} else if (salario > salarioFaixa2 && salario <= salarioFaixa3) {
-	salario = salario - salarioFaixa1;
+} else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
+	salario = salario - salarioLivreDeImposto;
 
-	salario = salario - debitoFaixa1;
-	saldoFaixa1 = debitoFaixa1 * taxaFaixa1;
+	salario = salario - debitoAte3K;
+	saldoAte3K = debitoAte3K * taxaAte3K;
 
-	saldoFaixa2 = salario * taxaFaixa2;
+	saldoAte4_5K = salario * taxaAte4_5K;
 
-	imposto = saldoFaixa1 + saldoFaixa2;
+	imposto = saldoAte3K + saldoAte4_5K;
 
-	console.log(`Imposto devido na faixa 2 de contribuição: R$ ${imposto.toFixed(2)}`);
+	console.log(`Imposto devido sobre salários entre R$ 3.000,00 e R$ 4.500,00: R$ ${imposto.toFixed(2)}`);
 
 	// SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
 } else {
-	salario = salario - salarioFaixa1;
+	salario = salario - salarioLivreDeImposto;
 
-	salario = salario - debitoFaixa1;
-	saldoFaixa1 = debitoFaixa1 * taxaFaixa1;
+	salario = salario - debitoAte3K;
+	saldoAte3K = debitoAte3K * taxaAte3K;
 
-	salario = salario - debitoFaixa2;
-	saldoFaixa2 = debitoFaixa2 * taxaFaixa2;
+	salario = salario - debitoAte4_5K;
+	saldoAte4_5K = debitoAte4_5K * taxaAte4_5K;
 
-	saldoFaixa3 = salario * taxaFaixa3;
+	saldoMaior4_5K = salario * taxaMaior4_5K;
 
-	imposto = saldoFaixa1 + saldoFaixa2 + saldoFaixa3;
+	imposto = saldoAte3K + saldoAte4_5K + saldoMaior4_5K;
 
-	console.log(`Imposto devido na faixa 3 de contribuição: R$ ${imposto.toFixed(2)}`);
+	console.log(`Imposto devido sobre salários superiores a R$ 4.500,00: R$ ${imposto.toFixed(2)}`);
 }
