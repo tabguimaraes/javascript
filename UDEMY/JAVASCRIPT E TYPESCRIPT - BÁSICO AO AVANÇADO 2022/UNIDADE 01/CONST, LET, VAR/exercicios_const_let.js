@@ -10,5 +10,5 @@ let imc = peso / (alturaEmM * alturaEmM);
 let anoNascimento = 2022 - idade;
 
 console.log(
-    `O IMC de ${nome} é de ${imc}.\nO ano de nascimento é ${anoNascimento}.\nA idade atual é de ${idade} anos.`
+	`O IMC de ${nome} é de ${imc}.\nO ano de nascimento é ${anoNascimento}.\nA idade atual é de ${idade} anos.`
 );
