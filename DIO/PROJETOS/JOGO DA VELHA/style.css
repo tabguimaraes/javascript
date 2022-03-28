@@ -2,6 +2,8 @@
 
 body {
 	background-color: azure;
+	margin: 0px;
+	padding: 0px;
 }
 
 #titulo {
@@ -9,6 +11,7 @@ body {
 	font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 40px;
 	font-weight: 400;
+	margin-top: 0;
 }
 
 /* div {
@@ -16,11 +19,12 @@ body {
 } */
 
 .container {
-	margin: 0 auto;
+	margin: 0px auto;
 	max-width: 240px;
 	border: 3px solid black;
 	padding: 20px;
 	border-radius: 10px;
+	color: black;
 }
 
 .grid {
@@ -34,11 +38,34 @@ body {
 	height: 65px;
 	font-size: 30px;
 	margin: 3px 2px;
-	font-weight: 300;
+	font-weight: 500;
 	padding-top: 25px;
 	border-radius: 3px;
 	text-align: center;
 	font-family: Roboto;
 	font-size: 40px;
-	background-color: rgb(192, 110, 110);
+	background-color: rgb(56, 66, 194);
+}
+
+#botao {
+	justify-content: center;
+	margin-top: 10px;
+}
+
+#tela-escura {
+	width: 100%;
+	height: 150%;
+	opacity: 0.95;
+	position: absolute;
+	background-color: black;
+	color: white;
+	display: none;
+	padding-top: 20px;
+	margin-right: 45%;
+}
+
+h2,
+h3 {
+	text-align: center;
+	margin-top: 50px;
 }
