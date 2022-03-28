@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+body {
+	background-color: azure;
+}
+
+#titulo {
+	text-align: center;
+	font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 40px;
+	font-weight: 400;
+}
