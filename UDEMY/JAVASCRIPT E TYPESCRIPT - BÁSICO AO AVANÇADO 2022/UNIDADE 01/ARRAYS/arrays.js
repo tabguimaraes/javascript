@@ -27,7 +27,7 @@ console.log(`Aluno retirado do inicio da lista>>\n${alunos}`);
 console.log(`O aluno removido foi:\n${removidoInicio}`);
 console.log();
 
-//DELET exclui apenas o item do array, mantendo o indice ativo, porém vazio
+//DELETE exclui apenas o item do array, mantendo o indice ativo, porém vazio
 delete alunos[1];
 console.log('Lista de alunos com item 1 deletado, mantendo o indice ativo e vazio:\n', alunos);
 console.log();
@@ -50,3 +50,9 @@ alunos = ['Marlene', 'Maria', 'João', 'José', 'Miguel'];
 console.log(alunos);
 console.log(alunos.slice(1, -2));
 console.log();
+
+let lista = [];
+for (contador = 1; contador <= 21; contador++) {
+	lista.push(contador);
+}
+console.log(lista);
