@@ -2,7 +2,7 @@ console.log('Conexão ok');
 
 const celulas = document.querySelectorAll('.celula');
 console.log(celulas);
-let verificarTurno = true;
+// let verificarTurno = true;
 
 const player_X = 'X';
 const player_0 = '0';
@@ -21,12 +21,27 @@ const combinacoes = [
 document.addEventListener('click', (event) => {
 	if (event.target.matches('.celula')) {
 		jogar(event.target.id);
+		bot();
 	}
 });
 
-function jogar(id) {
+function bot() {
+	const posicoesDisponiveis = [];
+	for (index in celulas) {
+		if (!isNaN(index)) {
+			if (!celulas[index].classList.contains('X') && !celulas[index].classList.contains('0')) {
+				posicoesDisponiveis.push(index);
+			}
+		}
+	}
+	const posicaoAleatoria = Math.floor(Math.random() * posicoesDisponiveis.length);
+
+	jogar(posicoesDisponiveis[posicaoAleatoria], player_0);
+}
+
+function jogar(id, turno) {
 	const celula = document.getElementById(id);
-	turno = verificarTurno ? player_X : player_0;
+	// turno = verificarTurno ? player_X : player_0;
 	celula.textContent = turno;
 	celula.classList.add(turno);
 
@@ -44,7 +59,8 @@ function verificarVencedor(turno) {
 	} else if (verificarEmpate()) {
 		gameOver();
 	} else {
-		verificarTurno = !verificarTurno;
+		console.log('ok');
+		// verificarTurno = !verificarTurno;
 	}
 }
 
