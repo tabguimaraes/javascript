@@ -2,7 +2,8 @@ console.log('Conexão ok');
 
 const celulas = document.querySelectorAll('.celula');
 console.log(celulas);
-// let verificarTurno = true;
+let verificarTurno = true;
+let fimDeJogo = false;
 
 const player_X = 'X';
 const player_0 = '0';
@@ -20,8 +21,8 @@ const combinacoes = [
 
 document.addEventListener('click', (event) => {
 	if (event.target.matches('.celula')) {
-		jogar(event.target.id);
-		bot();
+		jogar(event.target.id, player_X);
+		setTimeout(() => bot(), 500);
 	}
 });
 
@@ -35,13 +36,14 @@ function bot() {
 		}
 	}
 	const posicaoAleatoria = Math.floor(Math.random() * posicoesDisponiveis.length);
-
-	jogar(posicoesDisponiveis[posicaoAleatoria], player_0);
+	if (!fimDeJogo) {
+		jogar(posicoesDisponiveis[posicaoAleatoria], player_0);
+	}
 }
 
 function jogar(id, turno) {
 	const celula = document.getElementById(id);
-	// turno = verificarTurno ? player_X : player_0;
+	turno = verificarTurno ? player_X : player_0;
 	celula.textContent = turno;
 	celula.classList.add(turno);
 
@@ -60,7 +62,7 @@ function verificarVencedor(turno) {
 		gameOver();
 	} else {
 		console.log('ok');
-		// verificarTurno = !verificarTurno;
+		verificarTurno = !verificarTurno;
 	}
 }
 
@@ -83,6 +85,7 @@ function verificarEmpate() {
 }
 
 function gameOver(vencedor = null) {
+	fimDeJogo = true;
 	const telaEscura = document.getElementById('tela-escura');
 	const h2 = document.createElement('h2');
 	const h3 = document.createElement('h3');
