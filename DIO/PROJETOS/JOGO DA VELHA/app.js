@@ -6,7 +6,7 @@ let verificarTurno = true;
 let fimDeJogo = false;
 
 const player_X = 'X';
-const player_0 = '0';
+const player_0 = 'O';
 
 const combinacoes = [
 	[0, 1, 2],
