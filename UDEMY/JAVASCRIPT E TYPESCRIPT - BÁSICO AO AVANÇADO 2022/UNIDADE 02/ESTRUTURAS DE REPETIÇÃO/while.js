@@ -1,31 +1,29 @@
-//
-
 // Função para gerar números aleatórios
-function random(min, max) {
+function gerarNumero(min, max) {
 	const r = Math.random() * (max - min) + min;
-	return Math.floor(r); // Método para arredondar o resultado para baixo, transformando o número em inteiro
+	// Método para arredondar o resultado para baixo, transformando o número em inteiro
+	return Math.floor(r);
 }
 
 // Chamar a função e gerar de numeros de 1 a 60
-let NumeroRandom = random(1, 60);
-// console.log(NumeroRandom);
+let numeroAleatorio = gerarNumero(1, 60);
 
 //Array para salvar os números
-let numerosParaJogo = [];
+let listaDeNumeros = [];
 
-while (numerosParaJogo.length < 6) {
-	NumeroRandom = random(1, 60);
-	if (numerosParaJogo.includes(NumeroRandom)) {
-		NumeroRandom = random(1, 60);
-	} else {
-		numerosParaJogo.push(NumeroRandom);
-	}
+// laço para salvar 6 números únicos dentro do array 'ListaDeNumeros'
+while (listaDeNumeros.length < 6) {
+	numeroAleatorio = gerarNumero(1, 60);
+	let resultadoValidacao = listaDeNumeros.includes(numeroAleatorio)
+		? (numeroAleatorio = gerarNumero(1, 60))
+		: listaDeNumeros.push(numeroAleatorio);
 }
 
-numerosParaJogo.sort(function (a, b) {
+// Organizar o array por ordem crescente
+listaDeNumeros.sort(function (a, b) {
 	return a - b;
 });
 
 console.log('##########################');
-console.log(numerosParaJogo);
+console.log(listaDeNumeros);
 console.log('##########################');
