@@ -47,11 +47,11 @@ const taxaAte3K = 0.08;
 const taxaAte4_5K = 0.18;
 const taxaMaior4_5K = 0.28;
 
-let saldoAte3K = 0;
-let saldoAte4_5K = 0;
-let saldoMaior4_5K = 0;
+let saldoAte3K;
+let saldoAte4_5K;
+let saldoMaior4_5K;
 
-let imposto = 0;
+let imposto;
 
 // FAIXA DE SALARIO ISENTO DE IMPOSTO
 if (salario <= salarioLivreDeImposto) {
@@ -95,4 +95,4 @@ if (salario <= salarioLivreDeImposto) {
 	console.log(`Imposto devido sobre salários superiores a R$ 4.500,00: R$ ${imposto.toFixed(2)}`);
 }
 
-//
+//When I wrote this code, only two people knew what it did: God and me. Now, only God knows.
