@@ -13,8 +13,7 @@ let listaDeNumeros = [];
 
 // laço para salvar 6 números únicos dentro do array 'ListaDeNumeros'
 while (listaDeNumeros.length < 6) {
-	numeroAleatorio = gerarNumero(1, 60);
-	let resultadoValidacao = listaDeNumeros.includes(numeroAleatorio)
+	listaDeNumeros.includes(numeroAleatorio)
 		? (numeroAleatorio = gerarNumero(1, 60))
 		: listaDeNumeros.push(numeroAleatorio);
 }

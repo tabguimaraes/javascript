@@ -1,35 +1,36 @@
 //EM DESENVOLVIMENTO
 /* PENDENTE:
-- CRIAR FUNÇÃO P/ SALVAR OS NÚMEROS GERADOS NA FUNÇÃO 'RANDOM' DENTRO DO ARRAY
+- SALVAR OS NÚMEROS GERADOS NA FUNÇÃO 'gerarNumero' DENTRO DE UM ARRAY >> OK
 - CRIAR UM LAÇO PARA REPETIR 6X OS ARRAYS, MOSTRANDO A CADA TERMINO DA FUNÇÃO, O ARRAY COMPLETO COM OS NUMEROS GERADOS
 - AJUSTE GERAL DO CÓDIGO
 
 */
 
 // Função para gerar números aleatórios
-function random(min, max) {
+function gerarNumero(min, max) {
 	const r = Math.random() * (max - min) + min;
-	return Math.floor(r); // Método para arredondar o resultado para baixo, transformando o número em inteiro
+	// Método para arredondar o resultado para baixo, transformando o número em inteiro
+	return Math.floor(r);
 }
 
-function gerarNumero() {
-	// Chamar a função e gerar de numeros de 1 a 60
-	let numeroRandom = random(1, 60);
-	let numeroDoVolante = [];
-	while (numeroDoVolante.length < 6) {
-		numeroRandom = random(1, 60);
-		if (numeroDoVolante.includes(numeroRandom)) {
-			numeroRandom = random(1, 60);
-		} else {
-			numeroDoVolante.push(numeroRandom);
-			numeroDoVolante.sort(function (a, b) {
-				return a - b;
-			});
-		}
-	}
-	return console.log(numeroDoVolante);
+// Chamar a função e gerar de numeros de 1 a 60
+let numeroAleatorio = gerarNumero(1, 60);
+
+//Array para salvar os números
+let listaDeNumeros = [];
+
+// laço para salvar 6 números únicos dentro do array 'ListaDeNumeros'
+while (listaDeNumeros.length < 6) {
+	listaDeNumeros.includes(numeroAleatorio)
+		? (numeroAleatorio = gerarNumero(1, 60))
+		: listaDeNumeros.push(numeroAleatorio);
 }
 
-console.log(gerarNumero());
+// Organizar o array por ordem crescente
+listaDeNumeros.sort(function (a, b) {
+	return a - b;
+});
 
-
+console.log('=========================');
+console.log(listaDeNumeros);
+console.log('=========================');
