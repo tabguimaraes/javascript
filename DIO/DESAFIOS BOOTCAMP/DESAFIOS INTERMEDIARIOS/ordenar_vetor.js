@@ -15,15 +15,20 @@ let vetorNumeros = [
 ];
 
 for (let i = 0; vetorNumeros.length < 100; i++) {
-	if (vetorNumeros.values === vetorNumeros[i]) {
+	if (vetorNumeros.includes(i)) {
 		continue;
-	} else vetorNumeros.push(i);
+	} else {
+		numerosAdicionados = [];
+		numerosAdicionados.push(i);
+		vetorNumeros.push(i);
+	}
 }
 vetorNumeros.sort(function (a, b) {
 	return a - b;
 });
 
 console.log(vetorNumeros);
-
+// console.log('==============');
+// console.log(numerosAdicionados);
 
 //EM DESENVOLVIMENTO
