@@ -9,29 +9,39 @@
 	</head>
 	<body>
 		<section class="container">
-			<h1>Lorem ipsum dolor sit amet</h1>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi facere a sed, quibusdam blanditiis odio
-				recusandae numquam sapiente cupiditate tenetur, praesentium natus pariatur repellat facilis maiores aut
-				labore porro ad!
-			</p>
+			<h1 id="imcTitulo">Tabela IMC</h1>
+			<div id="tabelaIMC">
+				<!-- <h3>IMC</h3> -->
+			</div>
+			<!-- <div id="tabelaResultado">
+				<p>Abaixo de 18,5</p>
+				<p>Entre 18,5 e 24,9</p>
+				<p>Entre 25 e 29,9</p>
+				<p>Entre 30 e 34,9</p>
+				<p>Entre 35 e 39,9</p>
+				<p>Acima de 40</p>
+			</div> -->
+			<!-- <div id="infoIMC">
+				<p>Abaixo do peso</p>
+				<p>Peso normal</p>
+				<p>Sobrepeso</p>
+				<p>Obesidade grau 1</p>
+				<p>Obesidade grau 2</p>
+				<p>Obesidade grau 3</p>
+			</div> -->
 
-			<form action="">
-				<label for="input-teste-1">Label teste #1</label>
-				<input type="text" name="" id="input-teste-1" />
+			<h3 id="resultado">Resultado</h3>
+			<form action="" id="formulario" method="post">
+				<label for="peso">Peso</label>
+				<input type="text" name="peso" id="peso" />
 
-				<label for="input-teste-2">Label teste #2</label>
-				<input type="password" name="" id="input-teste-2" />
+				<label for="altura">Altura</label>
+				<input type="text" name="altura" id="altura" />
 
-				<label for="input-teste-3">Label teste #3</label>
-				<input type="email" name="" id="input-teste-3" />
-
-				<label for="input-teste-4">Label teste #4</label>
-				<input type="number" name="" id="input-teste-4" />
-
-				<button>Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
+			<div id="resultado"></div>
 		</section>
-		<!-- <script src="./assets/js/main.js"></script> -->
+		<script src="./assets/js/main.js"></script>
 	</body>
 </html>

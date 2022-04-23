@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-	max-width: 640px;
+	max-width: 800px;
 	margin: 50px auto;
 	background: #fff;
 	padding: 20px;
@@ -57,4 +57,42 @@ form button {
 
 form button:hover {
 	background: var(--primary-color-darker);
+}
+
+.paragrafoResultado,
+.incorreto {
+	background: rgb(109, 255, 182);
+	padding: 10px 20px;
+}
+
+.incorreto {
+	background: rgb(255, 150, 150);
+}
+
+#tabelaIMC {
+	display: flex;
+}
+
+#tabelaResultado {
+	max-width: 50%;
+	display: flexbox;
+}
+
+#infoIMC {
+	max-width: 50%;
+	display: flexbox;
+}
+
+p {
+	font-size: 20px;
+}
+
+h3 {
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1 {
+	/* margin-right: auto; */
+	text-align: center;
 }
