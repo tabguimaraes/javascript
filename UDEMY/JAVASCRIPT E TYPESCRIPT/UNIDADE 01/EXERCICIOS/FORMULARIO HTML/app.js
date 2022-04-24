@@ -34,7 +34,7 @@ function meuEscopo() {
 		console.log(pessoas);
 
 		//INSERIR NA PÁGINA O RESULTADO DOS CAMPOS DIGITADOS, CADA UM EM UMA LINHA
-		resultado.innerHTML += `<p> ${nome.value} ${sobreNome.value} ${peso.value} ${altura.value}\n</p>`;
+		resultado.innerHTML += `<p id='result'>Nome: ${nome.value} ${sobreNome.value}. Peso: ${peso.value}kg. Altura: ${altura.value}m\n</p>`;
 	}
 
 	//EVENTLISTENER: IDENTIFICAR QUANDO O BOTÃO É CLICADO E EXECUTAR A FUNÇÃO 'recebeEventoForm'
