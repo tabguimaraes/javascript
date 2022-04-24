@@ -20,11 +20,12 @@ body {
 }
 
 .container {
-	max-width: 640px;
+	max-width: 800px;
 	margin: 50px auto;
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
+	border: 1px solid black;
 }
 
 form input,
@@ -38,6 +39,7 @@ form input {
 	font-size: 24px;
 	height: 50px;
 	padding: 0 20px;
+	width: 100%;
 }
 
 form input:focus {
@@ -53,8 +55,48 @@ form button {
 	height: 50px;
 	cursor: pointer;
 	margin-top: 30px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 form button:hover {
 	background: var(--primary-color-darker);
+}
+
+#tituloPrincipal {
+	text-align: center;
+	border: 1px solid black;
+	background: rgb(109, 255, 182);
+}
+
+#posicaoColunas {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+#colunaEsquerda {
+	/* border: 1px solid black; */
+	width: 50%;
+}
+#colunaDireita {
+	/* border: 1px solid black; */
+	width: 50%;
+}
+
+.subTitulos {
+	text-align: center;
+	margin-top: 0;
+}
+
+h3,
+p {
+	margin: 10px;
+}
+
+#paragrafoDir {
+	text-align: end;
+}
+
+#subLadoDir {
+	text-align: end;
 }
