@@ -21,10 +21,11 @@ body {
 
 .container {
 	max-width: 800px;
-	margin: 50px auto;
+	margin: 40px auto;
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
+	border: 1px solid black;
 }
 
 form input,
@@ -38,6 +39,7 @@ form input {
 	font-size: 24px;
 	height: 50px;
 	padding: 0 20px;
+	width: 100%;
 }
 
 form input:focus {
@@ -53,46 +55,70 @@ form button {
 	height: 50px;
 	cursor: pointer;
 	margin-top: 30px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 form button:hover {
 	background: var(--primary-color-darker);
 }
 
+#imcTitulo {
+	text-align: center;
+	border: 1px solid black;
+	background: rgb(109, 255, 182);
+	padding: 15px;
+}
+
+#posicaoColunas {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+#colunaEsquerda {
+	/* border: 1px solid black; */
+	width: 50%;
+}
+#colunaDireita {
+	/* border: 1px solid black; */
+	width: 50%;
+}
+
+.subTitulos {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 50px;
+}
+
+h3,
+p {
+	margin: 10px;
+}
+
+h3 {
+	margin-bottom: 40px;
+}
+
+#paragrafoDir {
+	text-align: end;
+}
+
+#subLadoDir {
+	text-align: end;
+}
+
 .paragrafoResultado,
 .incorreto {
 	background: rgb(109, 255, 182);
 	padding: 10px 20px;
+	margin: 20px 0;
+	text-align: center;
 }
 
 .incorreto {
 	background: rgb(255, 150, 150);
 }
 
-#tabelaIMC {
-	display: flex;
-}
-
-#tabelaResultado {
-	max-width: 50%;
-	display: flexbox;
-}
-
-#infoIMC {
-	max-width: 50%;
-	display: flexbox;
-}
-
-p {
-	font-size: 20px;
-}
-
-h3 {
-	margin: 0 auto;
-	text-align: center;
-}
-
-h1 {
-	/* margin-right: auto; */
-	text-align: center;
+.textoLabel {
+	font-weight: 800;
 }

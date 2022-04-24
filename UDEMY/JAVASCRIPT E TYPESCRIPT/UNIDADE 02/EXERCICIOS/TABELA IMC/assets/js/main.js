@@ -1,3 +1,6 @@
+//Teste de conexão do JS com a página
+console.log('Conexão OK');
+
 //Capturar evento de 'submit' do formulário
 const form = document.querySelector('#formulario');
 
@@ -17,18 +20,9 @@ form.addEventListener('submit', function (evento) {
 	const imc = getIMC(peso, altura);
 	const nivelIMC = tabelaIMC(imc);
 
-	const mensagem = `Seu IMC é ${imc} (${nivelIMC}).`;
+	const mensagem = `Seu IMC é <strong>${imc}</strong> (${nivelIMC}).`;
 
 	gerarResultado(mensagem, true);
-	// if (!altura) {
-	// 	gerarResultado('Altura inválida', false);
-	// 	return;
-	// }
-
-	// console.log(peso, altura);
-
-	// console.log('evento previnido');
-	// gerarResultado('Teste de mensagem');
 });
 
 function tabelaIMC(imc) {
@@ -58,30 +52,24 @@ function criarParagrafo() {
 	//Criar parágrafo para o resultado:
 	const p = document.createElement('p');
 	return p;
-
-	//Add Class ao elemento 'p'
-	// p.classList.add('paragrafoResultado');
 }
 
 function gerarResultado(mensagem, isValid) {
 	const resultado = document.querySelector('#resultado');
 
-    
 	//Zerar o HTML do campo de resultado
 	resultado.innerHTML = '';
-    
+
 	const p = criarParagrafo();
-    if(isValid)  {
-        p.classList.add('paragrafoResultado');
-    } else{
-        p.classList.add('incorreto')
-    }
+	if (isValid) {
+		p.classList.add('paragrafoResultado');
+	} else {
+		p.classList.add('incorreto');
+	}
 
 	//Mensagem a ser adicionada
 	p.innerHTML = mensagem;
 
 	//Add paragrafo ao campo de resultado
 	resultado.appendChild(p);
-
-
 }

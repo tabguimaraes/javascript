@@ -1,47 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Calcule seu IMC</title>
-		<link rel="stylesheet" href="./assets/css/style.css" />
+		<title>Modelo</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
 	</head>
 	<body>
 		<section class="container">
 			<h1 id="imcTitulo">Tabela IMC</h1>
-			<div id="tabelaIMC">
-				<!-- <h3>IMC</h3> -->
+			<div id="posicaoColunas">
+				<div id="colunaEsquerda">
+					<h3 id="subLadoEsq">IMC</h3>
+					<p id="paragrafoEsq">Abaixo de 18,5</p>
+					<p id="paragrafoEsq">Entre 18,5 e 24,9</p>
+					<p id="paragrafoEsq">Entre 25 e 29,9</p>
+					<p id="paragrafoEsq">Entre 30 e 34,9</p>
+					<p id="paragrafoEsq">Entre 35 e 39,9</p>
+					<p id="paragrafoEsq">Acima de 40</p>
+				</div>
+				<div id="colunaDireita">
+					<h3 id="subLadoDir">CLASSIFICAÇÃO</h3>
+					<p id="paragrafoDir">Abaixo do peso</p>
+					<p id="paragrafoDir">Peso normal</p>
+					<p id="paragrafoDir">Sobrepeso</p>
+					<p id="paragrafoDir">Obesidade grau 1</p>
+					<p id="paragrafoDir">Obesidade grau 2</p>
+					<p id="paragrafoDir">Obesidade grau 3</p>
+				</div>
 			</div>
-			<!-- <div id="tabelaResultado">
-				<p>Abaixo de 18,5</p>
-				<p>Entre 18,5 e 24,9</p>
-				<p>Entre 25 e 29,9</p>
-				<p>Entre 30 e 34,9</p>
-				<p>Entre 35 e 39,9</p>
-				<p>Acima de 40</p>
-			</div> -->
-			<!-- <div id="infoIMC">
-				<p>Abaixo do peso</p>
-				<p>Peso normal</p>
-				<p>Sobrepeso</p>
-				<p>Obesidade grau 1</p>
-				<p>Obesidade grau 2</p>
-				<p>Obesidade grau 3</p>
-			</div> -->
-
-			<h3 id="resultado">Resultado</h3>
 			<form action="" id="formulario" method="post">
-				<label for="peso">Peso</label>
+				<label class="textoLabel" for="peso">Peso</label>
 				<input type="text" name="peso" id="peso" />
 
-				<label for="altura">Altura</label>
+				<label class="textoLabel" for="altura">Altura</label>
 				<input type="text" name="altura" id="altura" />
 
-				<button type="submit">Enviar</button>
+				<button>Enviar</button>
 			</form>
 			<div id="resultado"></div>
 		</section>
-		<script src="./assets/js/main.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
