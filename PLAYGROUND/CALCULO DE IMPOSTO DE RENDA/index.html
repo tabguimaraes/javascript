@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modelo</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<section class="container">
+			<h1 id="tituloPrincipal">Calculadora de Imposto de Renda sobre o salário</h1>
+			<div id="posicaoColunas">
+				<div id="colunaEsquerda">
+					<h3 id="subLadoEsq">Faixa Salarial</h3>
+					<p id="paragrafoEsq">Até R$ 2.000,00</p>
+					<p id="paragrafoEsq">De R$ 2.000,01 até R$ 3.000,00</p>
+					<p id="paragrafoEsq">De R$ 3.000,01 até R$ 4.500,00</p>
+					<p id="paragrafoEsq">Acima de R$ 4.500,00</p>
+				</div>
+				<div id="colunaDireita">
+					<h3 id="subLadoDir">Imposto</h3>
+					<p id="paragrafoDir">Isento</p>
+					<p id="paragrafoDir">0.08%</p>
+					<p id="paragrafoDir">0.18%</p>
+					<p id="paragrafoDir">0.28%</p>
+				</div>
+			</div>
+
+			<form id="formSalario" action="" method="post">
+				<label class="textoLabel" for="salario">Salário</label>
+				<input type="text" name="salario" id="salario" value="R$ " />
+
+				<button>Enviar</button>
+			</form>
+			<div id="resultado"></div>
+		</section>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
