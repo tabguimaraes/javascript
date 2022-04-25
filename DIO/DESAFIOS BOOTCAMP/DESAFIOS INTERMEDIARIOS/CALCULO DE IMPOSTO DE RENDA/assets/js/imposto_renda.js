@@ -56,17 +56,19 @@ let imposto;
 // FAIXA DE SALARIO ISENTO DE IMPOSTO
 if (salario <= salarioLivreDeImposto) {
 	console.log('Salário isento de imposto.');
+}
 
-	// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
-} else if (salario > salarioLivreDeImposto && salario <= salarioAte3K) {
+// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
+if (salario > salarioLivreDeImposto && salario <= salarioAte3K) {
 	saldoAte3K = salario - salarioLivreDeImposto;
 
 	imposto = saldoAte3K * taxaAte3K;
 
 	console.log(`Imposto devido sobre salários entre R$ 2.000,00 e R$ 3.000,00: R$ ${imposto.toFixed(2)}`);
+}
 
-	// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
-} else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
+// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
+if (salario > salarioAte3K && salario <= salarioAte4_5K) {
 	salario = salario - salarioLivreDeImposto;
 
 	salario = salario - debitoAte3K;
