@@ -34,7 +34,7 @@ igual a 2000, deverá ser impressa a mensagem "Isento". */
 
 //
 
-let salario = 4501;
+let salario = 2000;
 
 const salarioLivreDeImposto = 2000.0;
 const salarioAte3K = 3000.0;
