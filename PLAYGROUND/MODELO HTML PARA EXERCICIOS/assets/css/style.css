@@ -61,7 +61,8 @@ form button:hover {
 
 .container {
 	max-width: 800px;
-	margin: 50px auto;
+	height: 70%;
+	margin: 1.5% auto;
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
@@ -76,6 +77,7 @@ form button:hover {
 	text-align: center;
 	border: 1px solid black;
 	background: rgb(109, 255, 182);
+	margin-top: 0;
 }
 
 #posicaoColunas {
