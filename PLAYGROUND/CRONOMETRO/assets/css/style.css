@@ -19,47 +19,20 @@ body {
 	line-height: 1.5em;
 }
 
-h3,
 p {
 	margin: 10px;
 }
 
-form input,
-form label,
-form button {
-	display: block;
-	margin-bottom: 10px;
+.botoes {
+	margin: 0 10px;
+	padding: 10px;
+	border-radius: 15px;
+	font-weight: bolder;
+	font-family: 'Open Sans', sans-serif;
+	font-size: large;
 }
 
-form input {
-	font-size: 24px;
-	height: 50px;
-	padding: 0 20px;
-	width: 100%;
-}
-
-form input:focus {
-	border: 3px solid var(--primary-color);
-}
-
-form button {
-	border: none;
-	background: var(--primary-color);
-	color: #fff;
-	font-size: 18px;
-	font-weight: 700;
-	height: 50px;
-	cursor: pointer;
-	margin-top: 30px;
-	margin: 0 auto;
-	width: 100%;
-}
-
-form button:hover {
-	background: var(--primary-color-darker);
-}
-
-.container {
+#container {
 	max-width: 50%;
 	height: 70%;
 	margin: 10% auto;
@@ -67,18 +40,6 @@ form button:hover {
 	padding: 20px;
 	border-radius: 10px;
 	border: 1px solid black;
-}
-
-.paragrafoDir {
-	text-align: end;
-}
-
-.paragrafoEsq {
-	text-align: center;
-	font-weight: 600;
-	margin-bottom: 15px;
-	font-size: 60px;
-	padding: 50px;
 }
 
 #tituloPrincipal {
@@ -91,29 +52,24 @@ form button:hover {
 	padding: 20px;
 }
 
-#posicaoColunas {
-	display: flex;
-	margin-bottom: 50px;
+#valorCronometro {
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: 15px;
+	font-size: 60px;
+	padding: 50px;
 }
 
-#colunaEsquerda {
-	/* border: 1px solid black; */
-	width: 50%;
-}
-#colunaDireita {
-	/* border: 1px solid black; */
-	width: 50%;
-}
-
-#subLadoDir {
-	text-align: end;
-}
-
-.divBotoes {
+#divBotoes {
 	text-align: center;
 }
 
-.botoes {
-	margin: 0 10px;
-	padding: 10px;
+#iniciar {
+	background-color: rgb(81, 255, 81);
+}
+#pausar {
+	background-color: rgb(222, 255, 37);
+}
+#zerar {
+	background-color: rgb(179, 172, 173);
 }
