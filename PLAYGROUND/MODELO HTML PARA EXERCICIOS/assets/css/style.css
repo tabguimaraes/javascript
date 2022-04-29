@@ -60,7 +60,7 @@ form button:hover {
 }
 
 .container {
-	max-width: 800px;
+	max-width: 50%;
 	height: 70%;
 	margin: 1.5% auto;
 	background: #fff;
