@@ -62,7 +62,7 @@ form button:hover {
 .container {
 	max-width: 50%;
 	height: 70%;
-	margin: 1.5% auto;
+	margin: 10% auto;
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
@@ -73,11 +73,22 @@ form button:hover {
 	text-align: end;
 }
 
+.paragrafoEsq {
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: 15px;
+	font-size: 60px;
+	padding: 50px;
+}
+
 #tituloPrincipal {
 	text-align: center;
 	border: 1px solid black;
-	background: rgb(109, 255, 182);
+	border-radius: 10px;
+	background: rgb(233, 235, 234);
 	margin-top: 0;
+	font-size: 50px;
+	padding: 20px;
 }
 
 #posicaoColunas {
@@ -96,4 +107,13 @@ form button:hover {
 
 #subLadoDir {
 	text-align: end;
+}
+
+.divBotoes {
+	text-align: center;
+}
+
+.botoes {
+	margin: 0 10px;
+	padding: 10px;
 }
