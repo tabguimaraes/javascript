@@ -1,55 +1,54 @@
 console.log('Conexão ok');
 
-const container = document.querySelector('#container');
+function cronometro() {
+	const valorCronometro = document.querySelector('#valorCronometro');
 
-const valorCronometro = document.querySelector('#valorCronometro');
+	const statusRelogio = document.querySelector('#statusRelogio');
 
-const iniciar = document.querySelector('#iniciar');
+	let segundos = 0;
 
-const pausar = document.querySelector('#pausar');
+	let timer;
 
-const zerar = document.querySelector('#zerar');
+	function contardorSegundos(segundos) {
+		const data = new Date(segundos * 1000);
+		return data.toLocaleTimeString('pt-BR', {
+			hour12: false,
+			timeZone: 'GMT',
+		});
+	}
 
-const statusRelogio = document.querySelector('#statusRelogio');
+	document.addEventListener('click', function (getEvent) {
+		const elemento = getEvent.target;
 
-let segundos = 0;
+		if (elemento === document.getElementById('iniciar')) {
+			console.log('iniciar');
+			clearInterval(timer);
+			statusRelogio.classList.remove('pausado');
+			valorCronometro.style.cssText = 'color: rgba(255, 0, 0, 0.808)';
+			timer = setInterval(function () {
+				segundos++;
+				valorCronometro.innerHTML = contardorSegundos(segundos);
+			}, 1000);
+			statusRelogio.innerText = '';
+		}
 
-let timer;
+		if (elemento === document.getElementById('pausar')) {
+			console.log('pausar');
+			clearInterval(timer);
+			statusRelogio.classList.add('pausado');
+			statusRelogio.innerText = '';
+			statusRelogio.innerHTML = 'PAUSADO';
+		}
 
-function iniciarCronometro() {
-	clearInterval(timer);
-	statusRelogio.classList.remove('pausado');
-	valorCronometro.style.cssText = 'color: rgba(255, 0, 0, 0.808)';
-	timer = setInterval(function () {
-		segundos++;
-		valorCronometro.innerHTML = contardorSegundos(segundos);
-	}, 1000);
-	statusRelogio.innerText = '';
-}
-
-function pausarCronometro() {
-	clearInterval(timer);
-	statusRelogio.classList.add('pausado');
-	statusRelogio.innerText = '';
-	statusRelogio.innerHTML = 'PAUSADO';
-}
-
-function zerarCronometro() {
-	clearInterval(timer);
-	valorCronometro.style.cssText = 'color: rgba(0, 0, 0)';
-	statusRelogio.innerText = '';
-	valorCronometro.innerHTML = '00:00:00';
-	segundos = 0;
-}
-
-function contardorSegundos(segundos) {
-	const data = new Date(segundos * 1000);
-	return data.toLocaleTimeString('pt-BR', {
-		hour12: false,
-		timeZone: 'GMT',
+		if (elemento === document.getElementById('zerar')) {
+			console.log('zerar');
+			clearInterval(timer);
+			valorCronometro.style.cssText = 'color: rgba(0, 0, 0)';
+			statusRelogio.innerText = '';
+			valorCronometro.innerHTML = '00:00:00';
+			segundos = 0;
+		}
 	});
 }
 
-iniciar.addEventListener('click', iniciarCronometro);
-zerar.addEventListener('click', zerarCronometro);
-pausar.addEventListener('click', pausarCronometro);
+cronometro();
