@@ -33,110 +33,104 @@ de Renda, com duas casas após o ponto. Se o valor de entrada for menor ou
 igual a 2000, deverá ser impressa a mensagem "Isento". */
 
 function calcImposto() {
-	// Teste de conexão
-	console.log('Conexão Ok');
+  // Teste de conexão
+  console.log("Conexão Ok");
 
-	//Capturar evento de 'submit' do formulário
-	const form = document.querySelector('#formSalario');
+  //Capturar evento de 'submit' do formulário
+  const form = document.querySelector("#formSalario");
 
-	form.addEventListener('submit', function (evento) {
-		evento.preventDefault();
-		const inputSalario = evento.target.querySelector('#salario');
+  form.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+    const inputSalario = evento.target.querySelector("#salario");
 
-		console.log(inputSalario.value);
+    console.log(inputSalario.value);
 
-		let salario = Number(inputSalario.value);
+    let salario = Number(inputSalario.value);
 
-		if (!salario) {
-			gerarResultado('Valor inválido', false);
-			return;
-		}
+    if (!salario) {
+      gerarResultado("Valor inválido", false);
+      return;
+    }
 
-		const salarioLivreDeImposto = 2000.0;
-		const salarioAte3K = 3000.0;
-		const salarioAte4_5K = 4500.0;
+    const salarioLivreDeImposto = 2000.0,
+      salarioAte3K = 3000.0,
+      salarioAte4_5K = 4500.0,
+      debitoAte3K = 1000,
+      debitoAte4_5K = 1500,
+      taxaAte3K = 0.08,
+      taxaAte4_5K = 0.18,
+      taxaMaior4_5K = 0.28;
 
-		const debitoAte3K = 1000;
-		const debitoAte4_5K = 1500;
+    let saldoAte3K, saldoAte4_5K, saldoMaior4_5K, imposto;
 
-		const taxaAte3K = 0.08;
-		const taxaAte4_5K = 0.18;
-		const taxaMaior4_5K = 0.28;
+    // FAIXA DE SALARIO ISENTO DE IMPOSTO
+    if (salario <= salarioLivreDeImposto) {
+      // console.log('Salário isento de imposto.');
+      gerarResultado("Salário isento de imposto");
 
-		let saldoAte3K;
-		let saldoAte4_5K;
-		let saldoMaior4_5K;
+      // SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
+    } else if (salario > salarioLivreDeImposto && salario <= salarioAte3K) {
+      saldoAte3K = salario - salarioLivreDeImposto;
 
-		let imposto;
+      imposto = saldoAte3K * taxaAte3K;
+      // console.log(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
 
-		// FAIXA DE SALARIO ISENTO DE IMPOSTO
-		if (salario <= salarioLivreDeImposto) {
-			// console.log('Salário isento de imposto.');
-			gerarResultado('Salário isento de imposto');
+      // SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
+    } else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
+      salario = salario - salarioLivreDeImposto;
 
-			// SALARIO ENTRE 2000 E 3000 - FAIXA 1 DE CONTRIBUIÇÃO
-		} else if (salario > salarioLivreDeImposto && salario <= salarioAte3K) {
-			saldoAte3K = salario - salarioLivreDeImposto;
+      salario = salario - debitoAte3K;
+      saldoAte3K = debitoAte3K * taxaAte3K;
 
-			imposto = saldoAte3K * taxaAte3K;
-			// console.log(`Imposto devido: R$ ${imposto.toFixed(2)}`);
-			gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      saldoAte4_5K = salario * taxaAte4_5K;
 
-			// SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
-		} else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
-			salario = salario - salarioLivreDeImposto;
+      imposto = saldoAte3K + saldoAte4_5K;
 
-			salario = salario - debitoAte3K;
-			saldoAte3K = debitoAte3K * taxaAte3K;
+      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
 
-			saldoAte4_5K = salario * taxaAte4_5K;
+      // SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
+    } else {
+      salario = salario - salarioLivreDeImposto;
 
-			imposto = saldoAte3K + saldoAte4_5K;
+      salario = salario - debitoAte3K;
+      saldoAte3K = debitoAte3K * taxaAte3K;
 
-			gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      salario = salario - debitoAte4_5K;
+      saldoAte4_5K = debitoAte4_5K * taxaAte4_5K;
 
-			// SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
-		} else {
-			salario = salario - salarioLivreDeImposto;
+      saldoMaior4_5K = salario * taxaMaior4_5K;
 
-			salario = salario - debitoAte3K;
-			saldoAte3K = debitoAte3K * taxaAte3K;
+      imposto = saldoAte3K + saldoAte4_5K + saldoMaior4_5K;
 
-			salario = salario - debitoAte4_5K;
-			saldoAte4_5K = debitoAte4_5K * taxaAte4_5K;
+      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+    }
+    function criarParagrafo() {
+      //Criar parágrafo para o resultado:
+      const p = document.createElement("p");
+      return p;
+    }
 
-			saldoMaior4_5K = salario * taxaMaior4_5K;
+    function gerarResultado(mensagem, isValid) {
+      const resultado = document.querySelector("#resultado");
 
-			imposto = saldoAte3K + saldoAte4_5K + saldoMaior4_5K;
+      //Zerar o HTML do campo de resultado
+      resultado.innerHTML = "";
 
-			gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
-		}
-		function criarParagrafo() {
-			//Criar parágrafo para o resultado:
-			const p = document.createElement('p');
-			return p;
-		}
+      const p = criarParagrafo();
+      if (isValid) {
+        p.classList.add("paragrafoResultado");
+      } else {
+        p.classList.add("incorreto");
+      }
 
-		function gerarResultado(mensagem, isValid) {
-			const resultado = document.querySelector('#resultado');
+      //Mensagem a ser adicionada
+      p.innerHTML = mensagem;
 
-			//Zerar o HTML do campo de resultado
-			resultado.innerHTML = '';
-
-			const p = criarParagrafo();
-			if (isValid) {
-				p.classList.add('paragrafoResultado');
-			} else {
-				p.classList.add('incorreto');
-			}
-
-			//Mensagem a ser adicionada
-			p.innerHTML = mensagem;
-
-			//Add paragrafo ao campo de resultado
-			resultado.appendChild(p);
-		}
-		//When I wrote this code, only two people knew what it did: God and me. Now, only God knows.
-	});
+      //Add paragrafo ao campo de resultado
+      resultado.appendChild(p);
+    }
+    //When I wrote this code, only two people knew what it did: God and me. Now, only God knows.
+  });
 }
 calcImposto();
