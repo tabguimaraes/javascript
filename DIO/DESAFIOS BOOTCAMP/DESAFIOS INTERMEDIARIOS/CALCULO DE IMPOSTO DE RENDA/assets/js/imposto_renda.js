@@ -34,7 +34,7 @@ igual a 2000, deverá ser impressa a mensagem "Isento". */
 
 //
 
-let salario = 4501;
+let salario = 2001;
 
 const salarioLivreDeImposto = 2000.0,
   salarioAte3K = 3000.0,
@@ -75,9 +75,9 @@ if (salario > salarioAte3K && salario <= salarioAte4_5K) {
   console.log(`Imposto devido sobre salários entre R$ 3.000,00 e R$ 4.500,00: R$ ${imposto.toFixed(2)}`);
 
   // SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
-} else {
+}
+if (salario > salarioAte4_5K) {
   salario = salario - salarioLivreDeImposto;
-
   salario = salario - debitoAte3K;
   saldoAte3K = debitoAte3K * taxaAte3K;
 
