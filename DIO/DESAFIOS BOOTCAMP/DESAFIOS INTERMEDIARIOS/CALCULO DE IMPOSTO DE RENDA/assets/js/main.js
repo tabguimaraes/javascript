@@ -43,9 +43,10 @@ function calcImposto() {
     evento.preventDefault();
     const inputSalario = evento.target.querySelector("#salario");
 
-    console.log(inputSalario.value);
+    // console.log(inputSalario.value);
 
-    let salario = Number(inputSalario.value);
+    // let salario = Number(inputSalario.value);
+    let salario = +inputSalario.value; //Sinal de '+' antes da variável inputSalario transforma a string em number
 
     if (!salario) {
       gerarResultado("Valor inválido", false);
