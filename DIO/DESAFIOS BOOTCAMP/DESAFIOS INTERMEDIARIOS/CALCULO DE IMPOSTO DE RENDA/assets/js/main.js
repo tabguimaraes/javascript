@@ -41,13 +41,17 @@ function calcImposto() {
 
   form.addEventListener("submit", function (evento) {
     evento.preventDefault();
-    const inputSalario = evento.target.querySelector("#salario");
+    const inputSalario = +evento.target.querySelector("#salario").value.replace(",", ".");
+    // const teste = +inputSalario.replace(",", ".");
+
+    // console.log(teste);
 
     // console.log(inputSalario.value);
 
     // let salario = Number(inputSalario.value);
-    let salario = +inputSalario.value; //Sinal de '+' antes da variável inputSalario transforma a string em number
+    let salario = inputSalario.toFixed(2); //Sinal de '+' antes da variável inputSalario transforma a string em number
 
+    console.log(salario);
     if (!salario) {
       gerarResultado("Valor inválido", false);
       return;
@@ -75,7 +79,7 @@ function calcImposto() {
 
       imposto = saldoAte3K * taxaAte3K;
       // console.log(`Imposto devido: R$ ${imposto.toFixed(2)}`);
-      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      gerarResultado(`Imposto devido: ${imposto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`);
 
       // SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
     } else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
