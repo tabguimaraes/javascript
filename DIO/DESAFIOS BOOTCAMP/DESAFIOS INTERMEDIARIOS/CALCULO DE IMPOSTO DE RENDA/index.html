@@ -9,7 +9,7 @@
   </head>
   <body>
     <section class="container">
-      <h1 id="tituloPrincipal">Calculadora de Imposto de Renda sobre o salário</h1>
+      <h1 class="teste" id="tituloPrincipal">Calculadora de Imposto de Renda sobre o salário</h1>
       <div id="posicaoColunas">
         <div id="colunaSalario">
           <h3 id="subLadoEsq">Faixa Salarial</h3>
@@ -29,13 +29,11 @@
           <h3 id="subLadoDir">Calcular</h3>
           <form id="formSalario" action="" method="post">
             <label class="textoLabel" for="salario">Salário:</label>
-            <input type="text" name="salario" id="salario" value="" />
-
+            <input type="text" name="salario" id="salario" placeholder="R$" autofocus value="" />
             <button>Enviar</button>
           </form>
         </div>
       </div>
-
       <div id="resultado"></div>
     </section>
     <script src="assets/js/main.js"></script>

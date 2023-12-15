@@ -32,34 +32,34 @@ Imprima o texto "R$" seguido de um espaço e do valor total devido de Imposto
 de Renda, com duas casas após o ponto. Se o valor de entrada for menor ou
 igual a 2000, deverá ser impressa a mensagem "Isento". */
 
-function calcImposto() {
+function init() {
   // Teste de conexão
   console.log("Conexão Ok");
 
-  //Capturar evento de 'submit' do formulário
   const form = document.querySelector("#formSalario");
 
-  form.addEventListener("submit", function (evento) {
+  form.addEventListener("submit", event);
+
+  //Capturar evento de 'submit' do formulário
+  function event(evento) {
     evento.preventDefault();
-    const inputSalario = +evento.target.querySelector("#salario").value.replace(",", ".");
-    // const teste = +inputSalario.replace(",", ".");
+    calcularImposto(evento);
+  }
 
-    // console.log(teste);
+  function calcularImposto(evento) {
+    const inputSalario = evento.target.querySelector("#salario").value.replace(",", ".");
 
-    // console.log(inputSalario.value);
+    //Sinal de '+' antes da variável inputSalario transforma a string em number
+    let salario = +inputSalario;
 
-    // let salario = Number(inputSalario.value);
-    let salario = inputSalario.toFixed(2); //Sinal de '+' antes da variável inputSalario transforma a string em number
-
-    console.log(salario);
-    if (!salario) {
-      gerarResultado("Valor inválido", false);
+    if (!salario || salario <= 0) {
+      gerarResultado("Valor inválido");
       return;
     }
 
-    const salarioLivreDeImposto = 2000.0,
-      salarioAte3K = 3000.0,
-      salarioAte4_5K = 4500.0,
+    const salarioLivreDeImposto = 2000,
+      salarioAte3K = 3000,
+      salarioAte4_5K = 4500,
       debitoAte3K = 1000,
       debitoAte4_5K = 1500,
       taxaAte3K = 0.08,
@@ -92,7 +92,7 @@ function calcImposto() {
 
       imposto = saldoAte3K + saldoAte4_5K;
 
-      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      gerarResultado(`Imposto devido: ${imposto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`);
 
       // SALARIO ACIMA DE 4500 - FAIXA 3 DE CONTRIBUIÇÃO
     } else {
@@ -108,34 +108,34 @@ function calcImposto() {
 
       imposto = saldoAte3K + saldoAte4_5K + saldoMaior4_5K;
 
-      gerarResultado(`Imposto devido: R$ ${imposto.toFixed(2)}`);
+      gerarResultado(`Imposto devido: ${imposto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`);
     }
-    function criarParagrafo() {
-      //Criar parágrafo para o resultado:
-      const p = document.createElement("p");
-      return p;
+  }
+  function criarParagrafo() {
+    //Criar parágrafo para o resultado:
+    const p = document.createElement("p");
+    return p;
+  }
+
+  function gerarResultado(mensagem, isValid) {
+    const resultado = document.querySelector("#resultado");
+
+    //Zerar o HTML do campo de resultado
+    resultado.innerHTML = "";
+
+    const p = criarParagrafo();
+    if (isValid) {
+      p.classList.add("paragrafoResultado");
+    } else {
+      p.classList.add("incorreto");
     }
 
-    function gerarResultado(mensagem, isValid) {
-      const resultado = document.querySelector("#resultado");
+    //Mensagem a ser adicionada
+    p.innerHTML = mensagem;
 
-      //Zerar o HTML do campo de resultado
-      resultado.innerHTML = "";
-
-      const p = criarParagrafo();
-      if (isValid) {
-        p.classList.add("paragrafoResultado");
-      } else {
-        p.classList.add("incorreto");
-      }
-
-      //Mensagem a ser adicionada
-      p.innerHTML = mensagem;
-
-      //Add paragrafo ao campo de resultado
-      resultado.appendChild(p);
-    }
-    //When I wrote this code, only two people knew what it did: God and me. Now, only God knows.
-  });
+    //Add paragrafo ao campo de resultado
+    resultado.appendChild(p);
+  }
 }
-calcImposto();
+init();
+//When I wrote this code, only two people knew what it did: God and me. Now, only God knows.
