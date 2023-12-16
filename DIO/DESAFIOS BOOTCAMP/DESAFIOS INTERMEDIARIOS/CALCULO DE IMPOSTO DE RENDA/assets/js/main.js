@@ -76,7 +76,7 @@ function init() {
 
       // SALARIO ENTRE 3000 E 4500 - FAIXA 2 DE CONTRIBUIÇÃO
     } else if (salario > salarioAte3K && salario <= salarioAte4_5K) {
-      saldoAte4_5K = salario - salarioLivreDeImposto - debitoAte3K; 
+      saldoAte4_5K = salario - salarioLivreDeImposto - debitoAte3K;
       imposto = debitoAte3K * taxaAte3K + saldoAte4_5K * taxaAte4_5K;
       gerarResultado(`Imposto devido: ${imposto.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`);
 
